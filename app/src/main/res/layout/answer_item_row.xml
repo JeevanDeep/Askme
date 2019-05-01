@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="model" type="com.example.askme.model.AnswerModel"/>
+        <variable name="isCurrentUser" type="Boolean"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+        <ImageView
+                android:src="@drawable/ic_boy"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_margin="@dimen/default_margin"
+                android:id="@+id/answerUserImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+
+        <TextView
+                app:posted_date="@{model.date_posted}"
+                android:textSize="12sp"
+                android:layout_marginStart="@dimen/default_margin"
+                app:layout_constraintBottom_toBottomOf="@id/answerUserImage"
+                app:layout_constraintStart_toEndOf="@id/answerUserImage"
+                android:id="@+id/answerDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        />
+
+
+        <TextView
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                tools:text="Tarun preet singh suri"
+                android:text="@{model.author}"
+                android:layout_marginStart="@dimen/default_margin"
+                app:layout_constraintTop_toTopOf="@id/answerUserImage"
+                app:layout_constraintStart_toEndOf="@id/answerUserImage"
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:lineSpacingExtra="4dp"
+                android:text="@{model.content}"
+                android:paddingBottom="@dimen/margin_small"
+                tools:text="android is android is android is android is android"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="@dimen/default_margin"
+                app:layout_constraintTop_toBottomOf="@id/answerUserImage"
+                android:id="@+id/answerTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+        <ImageView
+                app:set_visibility="@{isCurrentUser}"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_more_vert_black_24dp"
+                android:layout_margin="@dimen/default_margin"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/optionsImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        />
+    </android.support.constraint.ConstraintLayout>
+</layout>

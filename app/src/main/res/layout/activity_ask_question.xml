@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.example.askme.ui.home.question.AskQuestionViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.home.question.AskQuestionActivity">
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            set_visibility="@{viewmodel.showProgress}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/light_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cancelButton"
+            android:layout_width="18sp"
+            android:layout_height="18sp"
+            android:layout_margin="@dimen/default_margin"
+            android:onClick="@{() -> viewmodel.onCloseClicked()}"
+            android:src="@drawable/ic_multiply"
+            app:layout_constraintBottom_toBottomOf="@id/divider"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/askButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:enabled="@{viewmodel.askEnabled}"
+            android:onClick="@{() -> viewmodel.onAskClicked()}"
+            android:text="@string/ask"
+            android:textColor="@color/ask_textview_bg"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/cancelButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/cancelButton" />
+
+        <FrameLayout
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/default_margin"
+            android:background="#EBEBEB"
+            app:layout_constraintTop_toBottomOf="@id/askButton" />
+
+        <EditText
+            android:id="@+id/questionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_margin"
+            android:afterTextChanged="@{(editable) -> viewmodel.afterTextChanged(editable)}"
+            android:background="@null"
+            android:hint="@string/what_is_your_question"
+            android:lineSpacingExtra="4dp"
+            android:maxLines="4"
+            android:text="@={viewmodel.questionEditText}"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+
+        <FrameLayout
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/default_margin"
+            android:background="#EBEBEB"
+            app:layout_constraintTop_toBottomOf="@id/questionEditText" />
+
+        <EditText
+            android:text="@={viewmodel.contentText}"
+            android:id="@+id/additionalContentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/default_margin"
+            android:background="@null"
+            android:gravity="top"
+            android:hint="@string/provide_more_details_optional"
+            android:lineSpacingExtra="4dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Ask me</string>
+    <string name="log_in_to_your_account">Log in to your account</string>
+    <string name="email_address">Email Address</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="log_in">Log In</string>
+    <string name="need_a_askme_account">Need a AskMe account?</string>
+    <string name="create_an_account">
+        <u>Create an account</u>
+    </string>
+    <string name="enter_password">Enter Password</string>
+    <string name="let_s_create_your_account">Let\'s create your account</string>
+    <string name="full_name">Full Name</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in_with_google">Log In with Google</string>
+    <string name="or">Or</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ask_me">Ask Me</string>
+    <string name="got_a_question_ask_me">Got a question? Ask Me!</string>
+    <string name="skip_for_now">Skip for now</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="provide_more_details_optional">Provide more details (Optional)</string>
+    <string name="what_is_your_question">What is your question?</string>
+    <string name="ask">Ask</string>
+    <string name="enter_your_answer">Enter your answer</string>
+    <string name="delete">Delete</string>
+    <string name="placeholder_text">Placeholder Text</string>
+    <string name="placeholder_text_large">placeholder text placeholder text</string>
+    <string name="log_out">Log out</string>
+
+</resources>
